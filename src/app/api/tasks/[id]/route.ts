@@ -48,17 +48,19 @@ export async function PATCH(
       );
     }
 
-    const updates = { ...validation.data };
+const updates: Record<string, unknown> = {
+  ...validation.data,
+};
 
-    if (updates.title !== undefined) {
-      updates.title = updates.title.trim();
-    }
+if (updates.title !== undefined) {
+  updates.title = (updates.title as string).trim();
+}
 
-    if (updates.dueDate !== undefined) {
-      updates.dueDate = updates.dueDate
-        ? new Date(updates.dueDate)
-        : null;
-    }
+if (updates.dueDate !== undefined) {
+  updates.dueDate = updates.dueDate
+    ? new Date(updates.dueDate as string)
+    : null;
+}
 
     await connectToDatabase();
 

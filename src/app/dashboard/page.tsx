@@ -10,7 +10,6 @@ import Task from "@/models/Task";
 
 import LogoutButton from "@/components/LogoutButton";
 import CreateTaskForm from "@/components/CreateTaskForm";
-import TaskActions from "@/components/TaskActions";
 
 export default async function DashboardPage() {
   const session = await auth.api.getSession({

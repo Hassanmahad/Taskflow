@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, type FormEvent } from "react";
@@ -28,7 +27,7 @@ export default function LoginPage() {
       });
 
       if (error) {
-        setError(error.message);
+        setError(error.message || "Login failed. Please try again.");
         return;
       }
 
@@ -44,19 +43,14 @@ export default function LoginPage() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-gray-50 px-4">
       <div className="w-full max-w-md rounded-2xl bg-white p-8 shadow-lg">
-
         <div className="mb-8 text-center">
-          <h1 className="text-3xl font-bold text-blue-600">
-            TaskFlow
-          </h1>
+          <h1 className="text-3xl font-bold text-blue-600">TaskFlow</h1>
 
           <h2 className="mt-4 text-2xl font-semibold text-gray-900">
             Welcome Back!
           </h2>
 
-          <p className="mt-2 text-gray-500">
-            Login to manage your tasks.
-          </p>
+          <p className="mt-2 text-gray-500">Login to manage your tasks.</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-5">
@@ -106,7 +100,7 @@ export default function LoginPage() {
         </form>
 
         <p className="mt-6 text-center text-sm text-gray-600">
-          Don't have an account?{" "}
+          Don&apos;t have an account?{" "}
           <Link
             href="/register"
             className="font-semibold text-blue-600 hover:underline"
@@ -116,14 +110,10 @@ export default function LoginPage() {
         </p>
 
         <div className="mt-6 text-center">
-          <Link
-            href="/"
-            className="text-sm text-gray-500 hover:text-blue-600"
-          >
+          <Link href="/" className="text-sm text-gray-500 hover:text-blue-600">
             ← Back to Home
           </Link>
         </div>
-
       </div>
     </main>
   );

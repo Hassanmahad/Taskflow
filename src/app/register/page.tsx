@@ -29,7 +29,7 @@ export default function RegisterPage() {
       });
 
       if (error) {
-        setError(error.message);
+        setError(error.message || "Registration failed. Please try again.");
         return;
       }
 
